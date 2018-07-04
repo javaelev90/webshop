@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OAuthService } from 'angular-oauth2-oidc';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-navigation',
@@ -8,19 +8,19 @@ import { OAuthService } from 'angular-oauth2-oidc';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor(private oauthService: OAuthService) {
+  constructor(private userService: UserService) {
   }
 
   public login() {
-      this.oauthService.initImplicitFlow();
+      this.userService.login();
   }
 
   public logout() {
-      this.oauthService.logOut();
+      this.userService.logout();
   }
 
   public isAuthenticated() : boolean{
-    return this.oauthService.hasValidAccessToken();
+    return this.userService.isAuthenticated();
   }
 
   ngOnInit() {
