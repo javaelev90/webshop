@@ -19,9 +19,9 @@ public class Product {
 
     private Integer price;
 
-    //TODO make this work!!!!
-    @ManyToMany
-    private List<Category> category;
+//    //TODO make this work!!!!
+//    @ManyToMany
+//    private List<Category> category;
 
     public Long getId() {
         return id;
@@ -55,11 +55,11 @@ public class Product {
         this.price = price;
     }
 
-    public List<Category> getCategory() {
-        return category;
-    }
-
-    public void setCategory(List<Category> category) {
-        this.category = category;
-    }
+//    public List<Category> getCategory() {
+//        return category;
+//    }
+//
+//    public void setCategory(List<Category> category) {
+//        this.category = category;
+//    }
 }

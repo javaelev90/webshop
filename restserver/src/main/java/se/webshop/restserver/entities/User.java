@@ -19,9 +19,9 @@ public class User {
     private Integer zipCode;
     private LocalDateTime dateJoined;
 
-    //TODO make this work!!!!
-    @OneToMany
-    private Role role;
+//    //TODO make this work!!!!
+//    @OneToMany
+//    private Role role;
 
     public Long getId() {
         return id;
