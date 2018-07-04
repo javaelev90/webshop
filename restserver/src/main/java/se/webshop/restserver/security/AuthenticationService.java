@@ -1,4 +1,4 @@
-package security;
+package se.webshop.restserver.security;
 
 import java.util.Optional;
 
