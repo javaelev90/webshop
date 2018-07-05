@@ -19,8 +19,14 @@
         (click)="logout()">
           Log Out
       </button>
+
+      <button
+        class="btn btn-primary btn-margin"
+        *ngIf="isAuthenticated()"
+        [routerLink]="['user']">
+          My page
+      </button>
 </mat-toolbar>
-{{name()}}
 <main class="container">
   <router-outlet></router-outlet>
 </main>

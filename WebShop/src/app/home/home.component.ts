@@ -18,9 +18,7 @@ export class HomeComponent implements OnInit {
 
   serverAuthTest(){
     let accessToken = this.oauthService.getAccessToken();
-    let email = "anders.lum@gmail.com";
     console.log(accessToken);
-    console.log(email);
-    this.userService.loginToServer(accessToken, email);
+    this.userService.getUserInfo(accessToken);
   }
 }

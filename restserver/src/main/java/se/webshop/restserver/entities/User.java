@@ -2,33 +2,58 @@ package se.webshop.restserver.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.time.LocalDateTime;
 
 @Entity
 public class User {
-
     // Should be set from the Authentication API, OAuth2 id should be used
     @Id
-    private Long id;
+    @NotNull
+    @JsonIgnore
+    private String hashId;
+    
+    //Information that the user should see --> 
     private String firstName;
     private String lastName;
     private String email;
     private String billingAddress;
     private String city;
     private Integer zipCode;
+    //<--
+    
+    @NotNull
+    @JsonIgnore
     private LocalDateTime dateJoined;
 
-//    //TODO make this work!!!!
-//    @OneToMany
-//    private Role role;
+    //TODO make this work!!!!
+    @NotNull
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "user_role")
+    private Role role;
+    
+    public Role getRole() {
+		return role;
+	}
 
-    public Long getId() {
-        return id;
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+	public String getHashId() {
+        return hashId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setHashId(String hashId) {
+        this.hashId = hashId;
     }
 
     public String getFirstName() {
@@ -85,5 +110,16 @@ public class User {
 
     public void setDateJoined(LocalDateTime dateJoined) {
         this.dateJoined = dateJoined;
+    }
+
+    public String toString() {
+    	return "first name: " + firstName + "\n"+
+    			"last name: " + lastName + "\n"+
+    			"email: " + email + "\n"+
+    			"billingAddress: " + billingAddress + "\n"+
+    			"city: " + city + "\n"+
+    			"zipcode: " + zipCode + "\n";
+    	
+    	
     }
 }

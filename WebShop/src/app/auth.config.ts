@@ -7,7 +7,7 @@ export const authConfig: AuthConfig = {
 
   responseType: 'code|token',
   // URL of the SPA to redirect the user to after login
-  redirectUri: window.location.origin + '/',
+  redirectUri: window.location.origin + '',
 
   // The SPA's id. The SPA is registerd with this id at the auth-server
   clientId: '86zBfl5cqraTPVbT2BSFEChzNpJ8ZX5f',

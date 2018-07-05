@@ -1,0 +1,13 @@
+
+<div class="user-info" *ngIf="userService.isAuthenticated()">
+  First name: <input [disabled]="edit" type="text" [(ngModel)] = 'user.firstName'>
+  Last name: <input type="text" [(ngModel)] = "user.lastName">
+  Email: <input type="text" [(ngModel)] = "user.email">
+  Billing address<input type="text" [(ngModel)] = "user.billingAddress">
+  City: <input type="text" [(ngModel)] = "user.city">
+  ZIP-code: <input class="zipCode" max="6" type="string" [(ngModel)] = "user.zipCode">
+  <div>
+    <button (click)="toggleEdit()">Edit</button>
+    <button (click)="save()" *ngIf="edit">Save</button>
+  </div>
+</div>
